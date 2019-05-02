@@ -1,7 +1,6 @@
 import {BigQuery} from '@google-cloud/bigquery';
 
 
-
 export function bigquery(obj) {
 
   var promise1 = new Promise(function(resolve, reject) {
@@ -9,6 +8,8 @@ export function bigquery(obj) {
     const credentials = require('../bqconfig')
     var data = []
     obj['submitted_at'] = BigQuery.timestamp(new Date())
+    const uuidv4 = require('uuid/v4')
+    obj['pk'] = uuidv4();
   
     data.push(obj)
   
