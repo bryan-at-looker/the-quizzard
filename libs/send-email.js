@@ -5,7 +5,7 @@ export function createEmailHTML(obj) {
     var msg = {
       to: obj.email,
       from: { email: process.env.FROM_EMAIL, name: 'The Quizzard' },
-      bcc: process.env.BCC_EMAIL,
+      bcc: (process.env.BCC_EMAIL) ? process.env.BCC_EMAIL : null,
       dynamic_template_data: {
         question: obj.question,
         explore_url: obj.url,
